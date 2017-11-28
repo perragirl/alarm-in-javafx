@@ -1,0 +1,16 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+ 
+    -fx-background-color:rgba(0,0,0,1);   
+}
+
+#main{
+    -fx-background-image: url("image/back.jpg");
+    -fx-background-size: cover;
+}
+
+root{
+}
