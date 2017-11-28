@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="487.0" prefWidth="402.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lion_alarm_program.AlarmController">
+    <stylesheets>
+        <URL value="@alarm.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="106.0" prefWidth="402.0" style="-fx-background-color: black;">
+         <children>
+            <Label alignment="CENTER" layoutX="151.0" layoutY="4.0" prefHeight="29.0" prefWidth="142.0" text="My Alarm" textFill="#933ec5">
+               <font>
+                  <Font name="Maiandra GD" size="27.0" />
+               </font>
+            </Label>
+            <JFXSpinner fx:id="jSpinner1" layoutX="109.0" layoutY="5.0" />
+            <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="40.0" prefHeight="66.0" prefWidth="82.0">
+               <children>
+                  <ImageView fx:id="alarmAtImg" fitHeight="48.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/clock-with-white-face%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Alarm At" textFill="#a19292" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="160.0" layoutY="41.0" prefHeight="59.0" prefWidth="82.0">
+               <children>
+                  <ImageView fx:id="alarmAfterImg" fitHeight="43.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/passage-of-time%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Alarm After" textFill="#a19292" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="305.0" layoutY="41.0" prefHeight="59.0" prefWidth="82.0">
+               <children>
+                  <ImageView fx:id="close" fitHeight="43.0" fitWidth="67.0" onMousePressed="#close" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/delete-button%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Close" textFill="#a19292" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ImageView fx:id="chevronAfter" fitHeight="9.0" fitWidth="15.0" layoutX="197.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/up-chevron.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="chevronAt" fitHeight="9.0" fitWidth="15.0" layoutX="52.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/up-chevron.png" />
+         </image>
+      </ImageView>
+      <AnchorPane id="main" fx:id="firstPane" disable="true" layoutY="113.0" opacity="0.0" prefHeight="316.0" prefWidth="401.0" stylesheets="@mainfxml.css" />
+      <AnchorPane id="main" fx:id="alarmAfter" layoutX="1.0" layoutY="115.0" prefHeight="376.0" prefWidth="401.0" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@mainfxml.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane layoutX="21.0" layoutY="118.0" prefHeight="219.0" prefWidth="342.0" style="-fx-background-color: white; -fx-border-color: black;">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutX="12.0" layoutY="5.0" prefHeight="16.0" prefWidth="315.0" style="-fx-border-color: black; -fx-border-radius: 12px;" text="La prochaine alarme dans:">
+                     <font>
+                        <Font name="Maiandra GD" size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="14.0" layoutY="32.0" prefHeight="132.0" prefWidth="308.0">
+                     <children>
+                        <Pane prefHeight="126.0" prefWidth="103.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="31.0" layoutY="41.0" prefHeight="86.0" prefWidth="39.0">
+                                 <children>
+                                    <JFXButton fx:id="butH_Up" contentDisplay="CENTER" onAction="#addHeure" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/up-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <TextField fx:id="hTextField" alignment="CENTER" minHeight="10.0" minWidth="30.0" onKeyPressed="#modifyInput_H" opacity="0.78" prefHeight="22.0" prefWidth="39.0" style="-fx-border-width: 0;">
+                                       <font>
+                                          <Font name="Maiandra GD" size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <JFXButton fx:id="butH_Down" contentDisplay="CENTER" onAction="#reduceHeure" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/down-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Label alignment="TOP_CENTER" layoutX="19.0" layoutY="10.0" prefHeight="28.0" prefWidth="66.0" text="Heures" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Maiandra GD" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="126.0" prefWidth="103.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="31.0" layoutY="41.0" prefHeight="86.0" prefWidth="39.0">
+                                 <children>
+                                    <JFXButton fx:id="butM_Up" contentDisplay="CENTER" onAction="#addMinute" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/up-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <TextField fx:id="mTextField" alignment="CENTER" minHeight="10.0" minWidth="30.0" onKeyPressed="#modifyInput_M" opacity="0.78" prefHeight="22.0" prefWidth="39.0" style="-fx-border-width: 0;">
+                                       <font>
+                                          <Font name="Maiandra GD" size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <JFXButton fx:id="butM_Down" contentDisplay="CENTER" onAction="#reduceMinute" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/down-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Label alignment="TOP_CENTER" layoutX="19.0" layoutY="10.0" prefHeight="28.0" prefWidth="66.0" text="Minutes" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Maiandra GD" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="126.0" prefWidth="103.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="31.0" layoutY="41.0" prefHeight="86.0" prefWidth="39.0">
+                                 <children>
+                                    <JFXButton fx:id="butS_Up" contentDisplay="CENTER" onAction="#addSeconde" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/up-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <TextField fx:id="sTextField" alignment="CENTER" minHeight="10.0" minWidth="30.0" onKeyPressed="#modifyInput_S" opacity="0.78" prefHeight="22.0" prefWidth="39.0" style="-fx-border-width: 0;">
+                                       <font>
+                                          <Font name="Maiandra GD" size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <JFXButton fx:id="butS_Down" contentDisplay="CENTER" onAction="#reduceSeconde" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/down-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Label alignment="TOP_CENTER" layoutX="19.0" layoutY="10.0" prefHeight="28.0" prefWidth="66.0" text="Secondes" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Maiandra GD" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <JFXButton fx:id="validAlarm" layoutX="233.0" layoutY="180.0" onAction="#alarmMe" prefHeight="33.0" prefWidth="90.0" style="-fx-border-color: black;" text="Valider" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="main" fx:id="alarmAt" layoutX="-1.0" layoutY="116.0" prefHeight="376.0" prefWidth="401.0" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@mainfxml.css" />
+         </stylesheets>
+         <children>
+            <AnchorPane layoutX="30.0" layoutY="14.0" prefHeight="334.0" prefWidth="342.0" style="-fx-background-color: white; -fx-border-color: black;">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutX="12.0" layoutY="5.0" prefHeight="16.0" prefWidth="315.0" style="-fx-border-color: black; -fx-border-radius: 12px;" text="Alarmer à: ">
+                     <font>
+                        <Font name="Maiandra GD" size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="69.0" layoutY="32.0" prefHeight="132.0" prefWidth="213.0">
+                     <children>
+                        <Pane prefHeight="126.0" prefWidth="103.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="31.0" layoutY="41.0" prefHeight="86.0" prefWidth="39.0">
+                                 <children>
+                                    <JFXButton fx:id="butH_Up1" contentDisplay="CENTER" onAction="#addHeure1" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/up-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <TextField fx:id="hTextField1" alignment="CENTER" minHeight="10.0" minWidth="30.0" onKeyPressed="#modifyInput_H1" opacity="0.78" prefHeight="22.0" prefWidth="39.0" style="-fx-border-width: 0;">
+                                       <font>
+                                          <Font name="Maiandra GD" size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <JFXButton fx:id="butH_Down1" contentDisplay="CENTER" onAction="#reduceHeure1" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/down-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Label alignment="TOP_CENTER" layoutX="19.0" layoutY="10.0" prefHeight="28.0" prefWidth="66.0" text="Heures" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Maiandra GD" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="126.0" prefWidth="103.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="31.0" layoutY="41.0" prefHeight="86.0" prefWidth="39.0">
+                                 <children>
+                                    <JFXButton fx:id="butM_Up1" contentDisplay="CENTER" onAction="#addMinute1" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/up-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <TextField fx:id="mTextField1" alignment="CENTER" minHeight="10.0" minWidth="30.0" onKeyPressed="#modifyInput_M1" opacity="0.78" prefHeight="22.0" prefWidth="39.0" style="-fx-border-width: 0;">
+                                       <font>
+                                          <Font name="Maiandra GD" size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <JFXButton fx:id="butM_Down1" contentDisplay="CENTER" onAction="#reduceMinute1" prefHeight="16.0" prefWidth="23.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/down-chevron.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                              <Label alignment="TOP_CENTER" layoutX="19.0" layoutY="10.0" prefHeight="28.0" prefWidth="66.0" text="Minutes" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Maiandra GD" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <JFXButton fx:id="validAlarm1" layoutX="237.0" layoutY="278.0" onAction="#alarmMe1" prefHeight="33.0" prefWidth="90.0" style="-fx-border-color: black;" text="Valider" textFill="#943dc5">
+                     <font>
+                        <Font name="Maiandra GD" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextField fx:id="text" focusColor="#943dc5" labelFloat="true" layoutX="18.0" layoutY="190.0" maxWidth="315.0" minWidth="315.0" prefHeight="39.0" prefWidth="315.0" promptText="Définir le texte à afficher">
+                     <font>
+                        <Font name="Maiandra GD" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <HBox layoutX="18.0" layoutY="238.0" prefHeight="30.0" prefWidth="307.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="112.0" text="Son de l'alarme:">
+                           <font>
+                              <Font name="Maiandra GD" size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="sonAlarm" prefHeight="28.0" prefWidth="195.0" style="-fx-border-color: black;" visibleRowCount="5" />
+                     </children>
+                  </HBox>
+                  <JFXButton layoutX="18.0" layoutY="278.0" onAction="#addAlarmSon" prefHeight="33.0" prefWidth="128.0" style="-fx-border-color: black;" text="Ajouter un son" textFill="#943dc5">
+                     <font>
+                        <Font name="Maiandra GD" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
+</AnchorPane>
